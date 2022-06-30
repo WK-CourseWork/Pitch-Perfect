@@ -146,20 +146,20 @@ extension PlaySoundsViewController: AVAudioPlayerDelegate {
         switch(playState) {
         case .playing:
             setPlayButtonsEnabled(false)
-            StopButton.isEnabled = true
+            stopButton.isEnabled = true
         case .notPlaying:
             setPlayButtonsEnabled(true)
-            StopButton.isEnabled = false
+            stopButton.isEnabled = false
         }
     }
     
     func setPlayButtonsEnabled(_ enabled: Bool) {
-        Slow.isEnabled = enabled
+        slow.isEnabled = enabled
         chipmunk.isEnabled = enabled
-        Fast.isEnabled = enabled
+        fast.isEnabled = enabled
         vader.isEnabled = enabled
-        Echo.isEnabled = enabled
-        Reverb.isEnabled = enabled
+        echo.isEnabled = enabled
+        reverb.isEnabled = enabled
     }
 
     func showAlert(_ title: String, message: String) {

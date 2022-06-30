@@ -26,7 +26,7 @@
                                     <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="recordaudieo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zkb-GU-GA6"/>
+                                    <action selector="recordaudieo:" destination="BYZ-38-t0r" eventType="touchUpInside" id="m9s-e0-8Je"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to Record" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fVl-PB-jZV">
@@ -47,7 +47,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration"/>
                                 </state>
                                 <connections>
-                                    <action selector="stoprecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mY1-4j-J0h"/>
+                                    <action selector="stoprecording:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GcO-jU-JfM"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -64,9 +64,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="CaN-GV-Mfb"/>
                     <connections>
-                        <outlet property="RecordingButton" destination="hGp-MN-hpc" id="ewZ-zW-OaQ"/>
-                        <outlet property="recordinglabel" destination="fVl-PB-jZV" id="PEc-Ov-haf"/>
-                        <outlet property="stopRecordingButton" destination="PGx-Cp-RoL" id="cmu-jb-DXy"/>
+                        <outlet property="recordingButton" destination="hGp-MN-hpc" id="V8L-DX-E8X"/>
+                        <outlet property="recordinglabel" destination="fVl-PB-jZV" id="c9I-Ux-XGd"/>
+                        <outlet property="stopRecordingButton" destination="PGx-Cp-RoL" id="BTc-yj-eW6"/>
                         <segue destination="Cv1-YY-XdX" kind="show" identifier="stopRecording" id="eZk-b1-Qv8"/>
                     </connections>
                 </viewController>
@@ -93,7 +93,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Slow" title=""/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="DFZ-y4-VqK"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="8GX-Re-D5w"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBl-XV-Q3N" userLabel="Fast">
@@ -101,7 +101,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Fast"/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="zJV-AY-gKX"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="TxL-f9-O9y"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -114,7 +114,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="HighPitch"/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="dM1-Gx-xQ6"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="sxC-X2-yag"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="19v-ty-JVN" userLabel="vader">
@@ -122,7 +122,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="LowPitch"/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="Zpb-if-NH3"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="Ecr-jV-lbs"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -135,7 +135,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Echo" title=""/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="fCd-88-l4S"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="GtQ-aW-ZSV"/>
                                                 </connections>
                                             </button>
                                             <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HU6-si-RZn" userLabel="Reverb">
@@ -143,7 +143,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="plain" image="Reverb"/>
                                                 <connections>
-                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="nK2-Kb-SCD"/>
+                                                    <action selector="playSoundForButton:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="WTO-tO-WOb"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -162,7 +162,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
-                                    <action selector="stopButtonPressed:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="kr3-ES-HzC"/>
+                                    <action selector="stopButtonPressed:" destination="Cv1-YY-XdX" eventType="touchUpInside" id="DNT-i2-DWD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -179,13 +179,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="scH-xE-mmz"/>
                     <connections>
-                        <outlet property="Echo" destination="hU5-QF-NK6" id="PGD-Qp-OWf"/>
-                        <outlet property="Fast" destination="ZBl-XV-Q3N" id="8n1-a8-i46"/>
-                        <outlet property="Reverb" destination="HU6-si-RZn" id="2vY-ew-ZPM"/>
-                        <outlet property="Slow" destination="KFg-0f-ZcF" id="wMv-Ib-Gzq"/>
-                        <outlet property="StopButton" destination="fC6-1w-L6n" id="Gk3-fB-pXU"/>
-                        <outlet property="chipmunk" destination="Tfh-jc-Y0G" id="BlB-c5-DBM"/>
-                        <outlet property="vader" destination="19v-ty-JVN" id="ahS-jJ-7is"/>
+                        <outlet property="chipmunk" destination="Tfh-jc-Y0G" id="WXM-QJ-2qm"/>
+                        <outlet property="echo" destination="hU5-QF-NK6" id="qdw-CX-C4d"/>
+                        <outlet property="fast" destination="ZBl-XV-Q3N" id="7Gn-Mc-0sQ"/>
+                        <outlet property="reverb" destination="HU6-si-RZn" id="gI8-OQ-VU7"/>
+                        <outlet property="slow" destination="KFg-0f-ZcF" id="6Q4-gA-z8d"/>
+                        <outlet property="stopButton" destination="fC6-1w-L6n" id="GHg-Gv-1Fc"/>
+                        <outlet property="vader" destination="19v-ty-JVN" id="43w-OJ-1Fw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OAP-v8-lXu" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

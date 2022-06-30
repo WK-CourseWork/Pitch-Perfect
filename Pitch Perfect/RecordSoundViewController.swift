@@ -8,7 +8,7 @@
 import UIKit
 import AVFoundation
 
-class recordSoundViewController: UIViewController, AVAudioRecorderDelegate {
+class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     var audioRecorder = AVAudioRecorder()
     
     @IBOutlet weak var recordinglabel: UILabel!
@@ -23,10 +23,7 @@ class recordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         super.viewWillAppear(animated)
     }
     @IBAction func recordaudieo(_ sender: Any) {
-        #error("The next 3 lines are repeditive")
-        recordinglabel.text = "Recording in progress"
-        stopRecordingButton.isEnabled = true
-        recordingButton.isEnabled = false
+       recordingChanges(recordingLabel: "Recording in Progress", recordingButton: false, stopRecordingButton: true)
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
@@ -43,10 +40,7 @@ class recordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     }
     
     @IBAction func stoprecording(_ sender: Any) {
-        #error("the next 3 lines are repeditive")
-        recordingButton.isEnabled = true
-        stopRecordingButton.isEnabled = false
-        recordinglabel.text = "Tap to Record"
+        recordingChanges(recordingLabel: "Tap to Record", recordingButton: true, stopRecordingButton: false)
         audioRecorder.stop()
            let audioSession = AVAudioSession.sharedInstance()
            try! audioSession.setActive(false)
@@ -68,6 +62,10 @@ class recordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             playSoundsVC.recordedAudioURL = recordedAudioURL
         }
     }
-    
+    func recordingChanges(recordingLabel:String, recordingButton:Bool, stopRecordingButton:Bool) {
+        self.recordinglabel.text = recordingLabel
+        self.stopRecordingButton.isEnabled = stopRecordingButton
+        self.recordingButton.isEnabled = recordingButton
+    }
 }
 
