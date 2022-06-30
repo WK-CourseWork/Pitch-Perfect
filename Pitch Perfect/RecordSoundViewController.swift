@@ -14,14 +14,21 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     @IBOutlet weak var recordinglabel: UILabel!
     @IBOutlet weak var recordingButton: UIButton!
     @IBOutlet weak var stopRecordingButton: UIButton!
-    
+    #warning("Mark-up notations missing. I marked the files up for future refrene")
+
+//    MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         stopRecordingButton.isEnabled = false
     }
+
+//    MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
+
+    #warning("audio is mis-spelled and recordaudio function does not match naming conventions. Should be recordAudio (note the lower camel case)")
+//    MARK: recordaudieo
     @IBAction func recordaudieo(_ sender: Any) {
        recordingChanges(recordingLabel: "Recording in Progress", recordingButton: false, stopRecordingButton: true)
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
@@ -38,7 +45,9 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         audioRecorder.prepareToRecord()
         audioRecorder.record()
     }
-    
+
+    #warning("function name is not lower camel case")
+//    MARK: stoprecording- button stop recording pressed
     @IBAction func stoprecording(_ sender: Any) {
         recordingChanges(recordingLabel: "Tap to Record", recordingButton: true, stopRecordingButton: false)
         audioRecorder.stop()
@@ -46,6 +55,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
            try! audioSession.setActive(false)
     }
     
+//    MARK: audioRecorderDidFinishRecording
     func audioRecorderDidFinishRecording(_ recorder: AVAudioRecorder, successfully flag: Bool) {
         if flag {
             performSegue(withIdentifier: "stopRecording", sender: audioRecorder.url)
@@ -55,6 +65,8 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
         }
         
     }
+
+//    MARK: prepare for segue
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "stopRecording" {
             let playSoundsVC = segue.destination as! PlaySoundsViewController
@@ -62,10 +74,30 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             playSoundsVC.recordedAudioURL = recordedAudioURL
         }
     }
+
+//    MARK: recordingChanges- changes label and button states
     func recordingChanges(recordingLabel:String, recordingButton:Bool, stopRecordingButton:Bool) {
         self.recordinglabel.text = recordingLabel
         self.stopRecordingButton.isEnabled = stopRecordingButton
         self.recordingButton.isEnabled = recordingButton
+    }
+
+    #warning("Below is how I would have done your recordingChanges function")
+//    MARK: isRecording
+    func isRecording(_ isRecording: Bool) {
+        
+        if isRecording {
+            recordinglabel.text = "Recording in Progress"
+        } else {
+            recordinglabel.text = "Tap to Record"
+        }
+        // using the "!" signifies NOT or opposite. so recording button will be set to the opposite of isRecording
+        recordingButton.isEnabled = !isRecording
+        
+        //and here we set stop recording to be the same as isRecording
+        stopRecordingButton.isEnabled = isRecording
+        
+        //Now calling this function is much simpler. when your are recording just call isRecording(true) when not recording it would be isRecording(false).
     }
 }
 

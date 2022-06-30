@@ -25,6 +25,9 @@ class PlaySoundsViewController: UIViewController {
     enum ButtonType: Int {
         case slow = 0, fast, chipmunk, vader, echo, reverb
     }
+
+    #warning("Mark-up notations missing.")
+//    MARK: playSoundForButton
     @IBAction func playSoundForButton(_ sender: UIButton) {
         switch(ButtonType(rawValue: sender.tag)!) {
            case .slow:
@@ -43,13 +46,19 @@ class PlaySoundsViewController: UIViewController {
 
            configureUI(.playing)
     }
+
+//    MARK: stopButtonPressed
     @IBAction func stopButtonPressed(_ sender: AnyObject) {
         stopAudio()
     }
+
+//    MARK: viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         setupAudio()
     }
+
+//    MARK: viewWillAppear
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configureUI(.notPlaying)
