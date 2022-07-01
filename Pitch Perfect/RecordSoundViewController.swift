@@ -30,7 +30,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     #warning("audio is mis-spelled and recordaudio function does not match naming conventions. Should be recordAudio (note the lower camel case)")
 //    MARK: recordaudieo
     @IBAction func recordaudieo(_ sender: Any) {
-       recordingChanges(recordingLabel: "Recording in Progress", recordingButton: false, stopRecordingButton: true)
+       isRecording(true)
         let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory,.userDomainMask, true)[0] as String
         let recordingName = "recordedVoice.wav"
         let pathArray = [dirPath, recordingName]
@@ -49,7 +49,7 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
     #warning("function name is not lower camel case")
 //    MARK: stoprecording- button stop recording pressed
     @IBAction func stoprecording(_ sender: Any) {
-        recordingChanges(recordingLabel: "Tap to Record", recordingButton: true, stopRecordingButton: false)
+        isRecording(false)
         audioRecorder.stop()
            let audioSession = AVAudioSession.sharedInstance()
            try! audioSession.setActive(false)
@@ -73,13 +73,6 @@ class RecordSoundViewController: UIViewController, AVAudioRecorderDelegate {
             let recordedAudioURL = sender as! URL
             playSoundsVC.recordedAudioURL = recordedAudioURL
         }
-    }
-
-//    MARK: recordingChanges- changes label and button states
-    func recordingChanges(recordingLabel:String, recordingButton:Bool, stopRecordingButton:Bool) {
-        self.recordinglabel.text = recordingLabel
-        self.stopRecordingButton.isEnabled = stopRecordingButton
-        self.recordingButton.isEnabled = recordingButton
     }
 
     #warning("Below is how I would have done your recordingChanges function")
