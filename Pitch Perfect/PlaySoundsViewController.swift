@@ -15,6 +15,8 @@ class PlaySoundsViewController: UIViewController {
     @IBOutlet weak var echo: UIButton!
     @IBOutlet weak var reverb: UIButton!
     @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var normal: UIButton!
+    
     
     var recordedAudioURL:URL!
     var audioFile:AVAudioFile!
@@ -23,7 +25,7 @@ class PlaySoundsViewController: UIViewController {
     var stopTimer: Timer!
 
     enum ButtonType: Int {
-        case slow = 0, fast, chipmunk, vader, echo, reverb
+        case slow = 0, fast = 1, chipmunk = 2, vader = 3, echo = 4, reverb = 5, normal = 6
     }
 
     #warning("Mark-up notations missing.")
@@ -42,6 +44,8 @@ class PlaySoundsViewController: UIViewController {
                playSound(echo: true)
            case .reverb:
                playSound(reverb: true)
+        case .normal:
+             playSound(rate: nil, pitch: nil, echo: false, reverb: false)
            }
 
            configureUI(.playing)
